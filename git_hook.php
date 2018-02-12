@@ -10,5 +10,6 @@ catch(Exception $e)
 
 if ($payload->ref === 'refs/heads/master')
 {
-  exec('git clean -f -d && git fetch --all && git reset --hard origin/master');
+  //exec('git clean -f -d && git fetch --all && git reset --hard origin/master');
+  echo "bra";
 }
