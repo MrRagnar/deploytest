@@ -1,7 +1,8 @@
 <?php 
+$content = file_get_contents("php://input");
 try
 {
-  $payload = json_decode($_REQUEST['payload']);
+  $payload = json_decode($content);
 }
 catch(Exception $e)
 {
@@ -10,6 +11,7 @@ catch(Exception $e)
 
 if ($payload->ref === 'refs/heads/master')
 {
-  //exec('git clean -f -d && git fetch --all && git reset --hard origin/master');
-  echo "bra";
+  exec('git clean -f -d && git fetch --all && git reset --hard origin/master');
+  echo "Updated webroot";
 }
+?>
